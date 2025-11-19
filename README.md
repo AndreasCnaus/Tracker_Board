@@ -36,6 +36,8 @@ The tracking logic runs on the STM32F407 and is responsible for hardware initial
     * `ERROR_INIT` (Hardware/Configuration Failure)
     * `ERROR_RUNTIME` (Data/Processing Failure)
     * `ERROR_TX` (Critical Communications Failure)
+  
+  ![Tracker Board Hardware Setup](docs/tracker_board_hw_prototype.jpg)
 
 ### 3. Data Server & Visualization (The Backend)
 
@@ -45,3 +47,5 @@ The server component, developed in C, is the data ingestion and display endpoint
 * **Data Ingestion:** The server receives raw tracking packets from the STM32F4 client via **HTTP POST requests**.
 * **Data Storage:** Received GPS coordinates and timestamps are securely saved in an **SQLite database**.
 * **Visualization:** Data queried from the database is rendered into dynamic maps and plots using the **Plotly** library, enabling real-time analysis of the asset's movement history.
+
+![GPS Track Data for 18.11.2025](docs/test_gps_track_18_11_2025.png)
