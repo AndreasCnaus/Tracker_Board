@@ -1,4 +1,4 @@
-# 🛰️ STM32F4 Cellular GPS Asset Tracker: Full-Stack System Overview
+# 🛰️ STM32F4 Cellular GPS Asset Tracker: System Overview
 
 This repository serves as the definitive, **code-free technical documentation** for a proof-of-concept asset tracking solution built from the ground up. The project demonstrates an entire IoT data path: from bare-metal hardware acquisition and cellular transmission to database storage and web visualization.
 
