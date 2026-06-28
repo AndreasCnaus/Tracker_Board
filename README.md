@@ -24,7 +24,7 @@ The upcoming hardware iteration (detailed in the `hardware/` folder) transitions
 * **Cell Protection:** Integrated hardware protection circuits safeguarding the battery against over-voltage, under-voltage, and over-current conditions.
 * **Power Rails:** Optimized multi-rail power distribution network designed to completely isolate and cut power to non-essential sub-systems during sleep cycles to achieve micro-amp quiescent draw.
 
-### Schematic Architecture Hierarchy (as shown in `image_fbfa38.png`):
+### Schematic Architecture Hierarchy:
 The new hardware design is structured hierarchically in KiCad. You can view the full multi-sheet layout here: **[View / Download the Schematic PDF](./hardware/ST87M01_Tracker_Board.pdf)**
 * **Host_MCU:** The brain of the tracker, centering around the STM32G0B0CET6 to manage low-level peripherals and state machines.
 * **NB_IoT_Modem_p1:** The RF and network interface layer built around the ST87M01-1301.
