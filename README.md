@@ -55,7 +55,7 @@ The tracking logic runs on the STM32F407 and is responsible for hardware initial
 
 The server component, developed in C, is the data ingestion and display endpoint for the tracking system.
 
-* **Server Repository:** [AndreasCnaus/simple\_http\_server: HTTP server that receives GPS data via POST requests and stores it in an SQLite database](https://github.com/AndreasCnaus/simple_http_server)
+* **Server Repository:** [AndreasCnaus/Tracker_HTTP_Server: HTTP server that receives GPS data via POST requests and stores it in an SQLite database](https://github.com/AndreasCnaus/Tracker_HTTP_Server)
 * **Data Ingestion:** The server receives raw tracking packets from the STM32F4 client via **HTTP POST requests**.
 * **Data Storage:** Received GPS coordinates and timestamps are securely saved in an **SQLite database**.
 * **Visualization:** Data queried from the database is rendered into dynamic maps and plots using the **Plotly** library, enabling real-time analysis of the asset's movement history.
