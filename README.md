@@ -15,22 +15,15 @@ This project is actively moving from a successful **Proof-of-Concept (PoC)** pha
 
 ## 🛠️ Next-Generation Custom Hardware Architecture (WIP)
 
-The upcoming hardware iteration (detailed in the `hardware/` folder) transitions the project to an ultra-efficient, production-ready design.
+The upcoming hardware iteration transitions the project to an ultra-efficient, production-ready design. The new hardware design is structured hierarchically in KiCad, with all design files located in the `hardware/` folder. You can view the full multi-sheet layout here: **[View / Download the Schematic PDF](./hardware/ST87M01_Tracker_Board.pdf)**
 
-### Key System Components
-* **Core Modem:** Integrated **ST87M01-1301** module, leveraging its advanced industrial NB-IoT/LTE-M connectivity and deep sleep power states.
-* **Host MCU:** **STM32G0B0CET6** microcontroller handling sensor aggregation, AT-command scheduling, and power state orchestration. This choice provides massive power savings and footprint reduction over the prototyping board while maintaining rich peripheral support (UARTS, SPI, I2C).
-* **Li-Ion Cell Charge Management:** Onboard lithium-ion charging circuitry, enabling reliable field deployment and solar/USB harvesting configurations.
-* **Cell Protection:** Integrated hardware protection circuits safeguarding the battery against over-voltage, under-voltage, and over-current conditions.
-* **Power Rails:** Optimized multi-rail power distribution network designed to completely isolate and cut power to non-essential sub-systems during sleep cycles to achieve micro-amp quiescent draw.
+### Key System Components & Schematic Hierarchy
 
-### Schematic Architecture Hierarchy:
-The new hardware design is structured hierarchically in KiCad. You can view the full multi-sheet layout here: **[View / Download the Schematic PDF](./hardware/ST87M01_Tracker_Board.pdf)**
-* **Host_MCU:** The brain of the tracker, centering around the STM32G0B0CET6 to manage low-level peripherals and state machines.
-* **NB_IoT_Modem_p1:** The RF and network interface layer built around the ST87M01-1301.
-* **Li-Ion Cell Charge Management:** Dedicated charging paths designed for battery safety and longevity.
-* **Power Rails:** Segmented voltage regulation to maximize energy efficiency.
-
+* **Host_MCU (The Brain):** Centers around the **STM32G0B0CET6** microcontroller to manage low-level peripherals, handle sensor interrupts, and run state machines. This choice provides massive power savings and a reduced footprint over the prototyping board while maintaining rich peripheral support (UARTs, SPI, I2C).
+* **NB_IoT_Modem (The Network Layer):** The RF and network interface layer built around the integrated **ST87M01-1301** module, leveraging its advanced industrial NB-IoT/LTE-M connectivity and deep sleep power states.
+* **Motion Detection (Low-Power Wakeup):** Features an integrated **LIS3DH** 3-axis accelerometer. This enables low-power motion detection algorithms, allowing the host MCU and modem to remain in an ultra-low-power deep sleep state until a physical movement threshold triggers a hardware interrupt.
+* **Li-Ion Cell Charge Management & Protection:** Dedicated, onboard lithium-ion charging circuitry designed for battery safety, longevity, and reliable field deployment (enabling solar/USB harvesting configurations). It includes integrated hardware protection circuits safeguarding the battery against over-voltage, under-voltage, and over-current conditions.
+* **Power Rails (Segmented Regulation):** An optimized multi-rail power distribution network featuring a buck-boost converter and a low-dropout LDO regulator. 
 ---
 
 ## ⚙️ Architectural Components (PoC Baseline)
